@@ -41,6 +41,7 @@ public class CalculatorTest {
 		calc.subtract(3);
 		assertEquals(0, calc.getTotal());
 	}
+	
 
 	@Test
 	public void testMultiply() {
@@ -53,6 +54,7 @@ public class CalculatorTest {
 		calc.multiply(3);
 		assertEquals(9, calc.getTotal());
 	}
+	
 
 	@Test
 	public void testDivide() {
@@ -73,10 +75,18 @@ public class CalculatorTest {
 	@Test
 	public void testGetHistory() {
 		Calculator calc = new Calculator();
-		calc.add(3);
+		calc.add(4);
+		calc.subtract(2);
+		calc.multiply(2);
 		calc.add(5);
 		
-		assertEquals("", calc.getHistory());
+		assertEquals("0 + 4 - 2 * 2 + 5", calc.getHistory());
 	}
-
+	
+	@Test
+	public void testBlankHistory() {
+		Calculator calc = new Calculator();
+		assertEquals("0", calc.getHistory());
+	}
+	
 }
